@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ App::getLocale() }}" dir="ltr">
+<html lang="{{ App::getLocale() }}" dir="{{config('app.direction')}}">
 
 <head>
     <meta charset="utf-8">
@@ -102,6 +102,20 @@
                                 <i class="sl-icon-menu font-20"></i>
                             </a>
                         </li>
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="/lang/en/ltr">
+                                <img src="{{ url('dashboard_assets/assets/images/EN.png') }}"
+                                    style="max-width: 25px;" alt="homepage" />
+                                EN</i>
+                            </a>
+
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="/lang/ar/rtl">
+                                <img src="{{ url('dashboard_assets/assets/images/AR.png') }}"
+                                    style="max-width: 25px;" alt="homepage" />
+                                AR</i>
+                            </a>
+                        </li>
                     </ul>
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
@@ -133,10 +147,11 @@
 
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" onclick="logout()">
-                                    <i class="fa fa-power-off m-r-5 m-l-5"></i> Logout
+                                    <i class="fa fa-power-off m-r-5 m-l-5"></i> {{__('common.logout')}}
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
                                     @csrf
                                 </form>
                             </div>

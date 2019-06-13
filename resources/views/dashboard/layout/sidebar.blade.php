@@ -27,19 +27,19 @@
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                         aria-expanded="false">
                         <i class="icon-Car-Wheel"></i>
-                        <span class="hide-menu">Companies </span>
+                        <span class="hide-menu">{{__('company.Companies')}}</span>
                     </a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item">
                             <a href="{{url('dashboard/company')}}" class="sidebar-link">
                                 <i class="icon-Record"></i>
-                                <span class="hide-menu"> List All Companies </span>
+                                <span class="hide-menu"> {{__('sidebar.List All Companies')}}</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a href="{{url('dashboard/company/create')}}" class="sidebar-link">
                                 <i class="icon-Record"></i>
-                                <span class="hide-menu"> Add New Company</span>
+                                <span class="hide-menu"> {{__('sidebar.Add New Company')}}</span>
                             </a>
                         </li>
                     </ul>
@@ -49,19 +49,19 @@
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                         aria-expanded="false">
                         <i class="icon-Car-Wheel"></i>
-                        <span class="hide-menu">Employees </span>
+                        <span class="hide-menu">{{__('employee.Employees')}}</span>
                     </a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item">
                             <a href="{{url('dashboard/employee')}}" class="sidebar-link">
                                 <i class="icon-Record"></i>
-                                <span class="hide-menu"> List All Employees </span>
+                                <span class="hide-menu"> {{__('sidebar.List All Employees')}}</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a href="{{url('dashboard/employee/create')}}" class="sidebar-link">
                                 <i class="icon-Record"></i>
-                                <span class="hide-menu"> Add New Employee</span>
+                                <span class="hide-menu"> {{__('sidebar.Add New Employee')}}</span>
                             </a>
                         </li>
                     </ul>

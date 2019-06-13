@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App;
 
 class HomeController extends Controller
 {
@@ -17,12 +18,14 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * set lang and direction
      *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+     * @return back
+    */
+    public function lang(String $locale, String $dir)
     {
-        return view('home');
+        session()->put('locale', $locale);
+        session()->put('direction', $dir);
+        return redirect()->back();
     }
 }

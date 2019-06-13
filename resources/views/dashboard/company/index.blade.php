@@ -1,12 +1,13 @@
 @extends('dashboard.layout.app')
 @section('title')
-Index Companyies
+{{__('company.Index Companyies')}}
 @endsection
 @section('content')
 <div class="page-breadcrumb">
     <div class="row">
         <div class="col-5 align-self-center">
-            <h4 class="page-title">Companies</h4>
+            <h4 class="page-title">
+                <th>{{ __('company.Companies')}}</th></h4>
             <div class="d-flex align-items-center">
             </div>
         </div>
@@ -14,8 +15,9 @@ Index Companyies
             <div class="d-flex no-block justify-content-end align-items-center">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('dashboard/company') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Companies</li>
+                        <li class="breadcrumb-item">
+                            <a  href="{{ url('dashboard/company') }}">{{ __('common.Dashboard')}}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ __('company.Companies')}}</li>
                     </ol>
                 </nav>
             </div>
@@ -34,10 +36,10 @@ Index Companyies
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Company Name</th>
-                                    <th>E-mail</th>
-                                    <th>Website</th>
-                                    <th>Actions</th>
+                                    <th>{{ __('company.Company Name')}}</th>
+                                    <th>{{ __('company.E-mail')}}</th>
+                                    <th>{{ __('company.Website')}}</th>
+                                    <th>{{ __('common.Actions')}}</th>
                                 </tr>
                             </thead>
                             <tbody>

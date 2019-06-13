@@ -80,6 +80,8 @@ return [
 
     'locale' => 'en',
 
+    'direction' => 'ltr',
+
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale

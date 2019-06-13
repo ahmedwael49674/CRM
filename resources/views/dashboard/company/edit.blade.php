@@ -1,12 +1,12 @@
 @extends('dashboard.layout.app')
 @section('title')
-Update Company
+{{__('company.Update Company')}}
 @endsection
 @section('content')
 <div class="page-breadcrumb">
     <div class="row">
         <div class="col-5 align-self-center">
-            <h4 class="page-title">Update Company Data</h4>
+            <h4 class="page-title">{{__('company.Update Company')}}</h4>
             <div class="d-flex align-items-center">
             </div>
         </div>
@@ -14,8 +14,9 @@ Update Company
             <div class="d-flex no-block justify-content-end align-items-center">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('dashboard/company/') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Update Company Data</li>
+                        <li class="breadcrumb-item">
+                            <a href="{{ url('dashboard/company') }}">{{ __('common.Dashboard')}}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{__('company.Update Company')}}</li>
                     </ol>
                 </nav>
             </div>
@@ -37,7 +38,7 @@ Update Company
                         <input type="hidden" name="id" value="{{ $company->id }}">
 
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-2 col-form-label">Company Name</label>
+                            <label for="example-text-input" class="col-2 col-form-label">{{__('company.Company Name')}}</label>
                             <div class="col-10">
                                 <input name="name" class="form-control" type="text"
                                     value="{{ old('name', $company->name) }}">
@@ -50,7 +51,7 @@ Update Company
                         </div>
 
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-2 col-form-label">E-mail</label>
+                            <label for="example-text-input" class="col-2 col-form-label">{{__('company.E-mail')}}</label>
                             <div class="col-10">
                                 <input name="email" class="form-control" type="email"
                                     value="{{ old('email', $company->email) }}">
@@ -63,7 +64,7 @@ Update Company
                         </div>
 
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-2 col-form-label">Website</label>
+                            <label for="example-text-input" class="col-2 col-form-label">{{__('company.Website')}}</label>
                             <div class="col-10">
                                 <input name="website" class="form-control" type="url"
                                     value="{{ old('website', $company->website) }}">
@@ -76,7 +77,7 @@ Update Company
                         </div>
 
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-2 col-form-label">Logo</label>
+                            <label for="example-text-input" class="col-2 col-form-label">{{__('company.Logo')}}</label>
                             <div class="col-10">
                                 <input name="logo" class="form-control" type="file" value="{{ old('logo') }}">
                                 @isset($errors->logo)
@@ -88,8 +89,8 @@ Update Company
                         </div>
 
                         <div class="form-actions float-right">
-                            <a href="{{ url('dashboard/company') }}" type="button" class="btn btn-dark">Cancel</a>
-                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                            <a href="{{ url('dashboard/company') }}" type="button" class="btn btn-dark">{{__('common.Cancel')}}</a>
+                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> {{__('common.Save')}}</button>
                         </div>
                     </form>
                 </div>

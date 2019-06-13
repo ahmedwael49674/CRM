@@ -1,6 +1,6 @@
 @extends('dashboard.layout.app')
 @section('title')
-Index Companyies
+{{__('employee.Index Employees')}}
 @endsection
 @section('content')
 <div class="page-breadcrumb">
@@ -11,7 +11,7 @@ Index Companyies
             <img src="{{ asset('storage/'.$company->logo)}}" width="70"
             class="rounded-circle"> {{$company->name}}
             @endisset
-             Employees</h4>
+             {{__('employee.Employees')}}</h4>
             <div class="d-flex align-items-center">
             </div>
         </div>
@@ -19,8 +19,9 @@ Index Companyies
             <div class="d-flex no-block justify-content-end align-items-center">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('dashboard/employee') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Employees</li>
+                        <li class="breadcrumb-item"><a
+                                href="{{ url('dashboard/employee') }}">{{ __('common.Dashboard')}}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{__('employee.Employees')}}</li>
                     </ol>
                 </nav>
             </div>
@@ -39,13 +40,13 @@ Index Companyies
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Company Name</th>
-                                    <th>Actions</th>
+                                    <th>{{__('employee.First Name')}}</th>
+                                    <th>{{__('employee.Last Name')}}</th>
+                                    <th>{{__('employee.Company Name')}}</th>
+                                    <th>{{__('common.Actions')}}</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody> 
                                 @foreach ($employees as $key => $employee)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>

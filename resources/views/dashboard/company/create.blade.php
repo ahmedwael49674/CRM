@@ -1,12 +1,12 @@
 @extends('dashboard.layout.app')
 @section('title')
-  Create Company
+{{__('company.Create New Company')}}
 @endsection
 @section('content')
 <div class="page-breadcrumb">
     <div class="row">
         <div class="col-5 align-self-center">
-            <h4 class="page-title">create New Company</h4>
+            <h4 class="page-title">{{__('company.Create New Company')}}</h4>
             <div class="d-flex align-items-center">
             </div>
         </div>
@@ -14,8 +14,10 @@
             <div class="d-flex no-block justify-content-end align-items-center">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('dashboard/company') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Insert New Company</li>
+                        <li class="breadcrumb-item">
+                            <a href="{{ url('dashboard/company') }}">{{ __('common.Dashboard')}}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> {{__('company.Create New Company')}}
+                        </li>
                     </ol>
                 </nav>
             </div>
@@ -34,7 +36,8 @@
                         enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-2 col-form-label">Company Name</label>
+                            <label for="example-text-input"
+                                class="col-2 col-form-label">{{__('company.Company Name')}}</label>
                             <div class="col-10">
                                 <input name="name" class="form-control" type="text" value="{{ old('name') }}">
                                 @if ($errors->has('name'))
@@ -45,7 +48,8 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-2 col-form-label">E-mail</label>
+                            <label for="example-text-input"
+                                class="col-2 col-form-label">{{__('company.E-mail')}}</label>
                             <div class="col-10">
                                 <input name="email" class="form-control" type="email" value="{{ old('email') }}">
                                 @if ($errors->has('email'))
@@ -56,7 +60,8 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-2 col-form-label">Website</label>
+                            <label for="example-text-input"
+                                class="col-2 col-form-label">{{__('company.Website')}}</label>
                             <div class="col-10">
                                 <input name="website" class="form-control" type="url" value="{{ old('website') }}">
                                 @if ($errors->has('website'))
@@ -67,7 +72,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-2 col-form-label">Logo</label>
+                            <label for="example-text-input" class="col-2 col-form-label">{{__('company.Logo')}}</label>
                             <div class="col-10">
                                 <input name="logo" class="form-control" type="file" value="{{ old('logo') }}">
                                 @if ($errors->has('logo'))
@@ -78,8 +83,10 @@
                             </div>
                         </div>
                         <div class="form-actions float-right">
-                            <a href="{{ url('dashboard/company') }}" type="button" class="btn btn-dark">Cancel</a>
-                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                            <a href="{{ url('dashboard/company') }}" type="button"
+                                class="btn btn-dark">{{__('common.Cancel')}}</a>
+                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i>
+                                {{__('common.Save')}}</button>
                         </div>
                     </form>
                 </div>

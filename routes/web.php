@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('lang/{lang}/{dir}', 'HomeController@lang');
 
 Auth::routes();
 
