@@ -28,9 +28,9 @@ It's a system that allow store companies and employees with:
 
 ### ERD  diagram 
  ![alt text](https://github.com/ahmedwael49674/Mini-CRM/blob/master/diagrams/ERD.png)
- 2. users: store all the user's data within the system.
- 3. companies: store all the company data.
- 4. employees: store employees data with foreign company_id which is a reference to companies table.
+ 1. users: store all the user's data within the system.
+ 2. companies: store all the company data.
+ 3. employees: store employees data with foreign company_id which is a reference to companies table.
  
 ## How to run?
 
