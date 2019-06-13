@@ -1,0 +1,8 @@
+.table-caption {
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: #ecf0f2;
+  box-shadow: 1px 1px 1px #f5f5f5;
+  caption-side: top;
+}
