@@ -1,65 +1,45 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# Mini-CRM
+ ![alt text](https://github.com/ahmedwael49674/Mini-CRM/blob/master/diagrams/view.png)
+## Summary
+It's a system that allow store companies and employees with: 
+- Complete CRUD functionality over both Companies and Employees.
+- validation function over all the system inputs.
+- pagination for showing Companies/Employees list.
+- Email notification for the account owner when the account used to create a new company.
+- The ability to switch between (English, Arabic ) languages considering the direction (ltr, rtl).
+- PHPUnit test over all the CRUD functionality of both Companies and Employees.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Used technologies
+1. Laravel
+2. adminbit
+3. sweetalert
 
-## About Laravel
+## Description
+### Sequence  diagram 
+ ![alt text](https://github.com/ahmedwael49674/Mini-CRM/blob/master/diagrams/Sequence%20Diagram.jpg)
+1. User creates a new company.
+2. Validator receive the request if there is validation error display it to the user else pass the request to company controller.
+3. CompanyController sends the data to the database.
+4. CompanyController fire NewUserCreated event with the new company data.
+5. NewUserCreated event shares the new company data with SendNotificationEmail listener.
+6. SendNotificationEmail listener call NewCompanyCreated mail
+7. NewCompanyCreated mail sends mail to the auth with the new company data.
+8. CompanyController returns to the user with success message.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+### ERD  diagram 
+ ![alt text](https://github.com/ahmedwael49674/Mini-CRM/blob/master/diagrams/ERD.png)
+ 2. users: store all the user's data within the system.
+ 3. companies: store all the company data.
+ 4. employees: store employees data with foreign company_id which is a reference to companies table.
+ 
+## How to run?
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. git clone the project
+2. composer install
+3. create the database
+4. copy .env.exmple to .env and change database username and password
+5. run the migrations (php artisan migrate)
+6. run the seeder (php artisan db:seed)
+7. run the project (php artisan serve)
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
-
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Note: to active mail function try Mailgun or Mailtrap copy the account credentials to .env file
