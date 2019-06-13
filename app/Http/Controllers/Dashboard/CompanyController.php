@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\CompanyRequest;
+use App\Mail\NewCompanyCreated;
 use App\Repositories\Companies;
 use Illuminate\Http\Request;
 use App\{Company,Employee};
-
+use Auth;
 class CompanyController extends Controller
 {
   /**
@@ -53,8 +55,8 @@ class CompanyController extends Controller
   */
   public function store(CompanyRequest $request)
   {
-    Company::create($request->all());
-
+    $company  = Company::create($request->all());
+    Mail::to(Auth::user()->email)->send(new NewCompanyCreated($company));
     return back()->with('msg', 'Company added successfully.');
   }
 

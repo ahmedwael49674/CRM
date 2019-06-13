@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+
 Auth::routes();
 
 Route::group(['namespace'=>'Dashboard', 'prefix'=>'dashboard', 'middleware'=>'auth'], function () {
