@@ -27,6 +27,6 @@ class Company extends Model
 
   public function setLogoAttribute($value)
   {
-    $this->attributes['logo'] = Storage::disk('public')->putFile('logos', $value);
+      $this->attributes['logo'] = Storage::disk('public')->putFile('logos', $value);
   }
 }

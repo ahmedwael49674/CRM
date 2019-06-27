@@ -33,29 +33,4 @@ class User extends Authenticatable
     'password', 'remember_token',
   ];
 
-  /**
-  * insert new user row.
-  */
-  public static function insertRow($request)
-  {
-    $user = new User();
-    $user->email = $request->email;
-    $user->name = $request->name;
-    $user->password = bcrypt($request->password);
-    $user->save();
-  }
-
-  /**
-  * update user row.
-  */
-  public static function updateRow($request, $id)
-  {
-    $user = User::findOrFail($id);
-    $user->name = $request->name;
-    $user->email = $request->email;
-    if (!empty($request->password)) {
-      $user->password = bcrypt($request->password);
-    }
-    $user->save();
-  }
 }

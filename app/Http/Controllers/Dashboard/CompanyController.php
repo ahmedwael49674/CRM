@@ -82,7 +82,7 @@ class CompanyController extends Controller
   public function update(CompanyRequest $request, Int $id)
   {
     $company  = Company::findOrFail($id);
-    Companies::RemoveLogoIfExist($company);
+    $request->has('image')?Companies::RemoveLogoIfExist($company):'';
     $company->update($request->all());
 
     return redirect()->back()->with('msg', 'Company updated successfully.');
