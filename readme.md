@@ -1,7 +1,7 @@
 # Mini-CRM
  ![alt text](https://github.com/ahmedwael49674/Mini-CRM/blob/master/diagrams/view.png)
 ## Summary
-It's a system that allow store companies and employees with: 
+It's a system that allows store companies and employees with: 
 - Complete CRUD functionality over both Companies and Employees.
 - validation function over all the system inputs.
 - pagination for showing Companies/Employees list.
