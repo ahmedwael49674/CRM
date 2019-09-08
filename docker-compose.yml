@@ -1,0 +1,69 @@
+version: '2'
+services:
+      
+  # The Database
+  database:
+    image: mysql:5.7
+    container_name: mysql
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: MinCrm
+      MYSQL_USER: default
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret
+    ports:
+        - "33061:3306"
+
+  # The phpmyadmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    hostname: phpmyadmin.local
+    links:
+      - database
+    ports:
+      - "8060:80"
+    environment:
+      - PMA_HOST=database
+      - PMA_PASSWORD=secret
+      - PMA_USER=default
+      - MYSQL_PASSWORD=secret
+      - MYSQL_USER=default
+      - MYSQL_ROOT_PASSWORD=secret
+
+  # The Application
+  app:
+    container_name: app
+    build:
+      context: ./
+      dockerfile: docker/app.dockerfile
+    working_dir: /var/www
+    links:
+      - database
+      - phpmyadmin
+    volumes:
+      - ./:/var/www
+    environment:
+      - DB_PORT=3306
+      - DB_HOST=mysql
+      - DB_DATABASE=MinCrm
+      - DB_USERNAME=default
+      - DB_PASSWORD=secret
+      - DB_ROOT_PASSWORD=secret
+
+  # The Web Server
+  web:
+    container_name: web
+    restart: on-failure
+    build:
+      context: ./
+      dockerfile: docker/web.dockerfile
+    working_dir: /var/www
+    volumes_from:
+      - app
+    ports:
+      - 80:80
+      
+volumes:
+  dbdata:

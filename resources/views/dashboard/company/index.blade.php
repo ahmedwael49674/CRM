@@ -7,7 +7,8 @@
     <div class="row">
         <div class="col-5 align-self-center">
             <h4 class="page-title">
-                <th>{{ __('company.Companies')}}</th></h4>
+                <th>{{ __('company.Companies')}}</th>
+            </h4>
             <div class="d-flex align-items-center">
             </div>
         </div>
@@ -16,7 +17,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a  href="{{ url('dashboard/company') }}">{{ __('common.Dashboard')}}</a></li>
+                            <a href="{{ url('dashboard/company') }}">{{ __('common.Dashboard')}}</a></li>
                         <li class="breadcrumb-item active" aria-current="page">{{ __('company.Companies')}}</li>
                     </ol>
                 </nav>
@@ -24,7 +25,11 @@
         </div>
     </div>
 </div>
-
+@if(session()->has('message'))
+<div class="alert alert-success">
+    {{ session()->get('message') }}
+</div>
+@endif
 <div class="container-fluid">
     <!-- File export -->
     <div class="row">
@@ -48,8 +53,8 @@
                                     <td>{{ $key + 1 }}</td>
                                     <td>
                                         @if($company->logo)
-                                            <img src="{{ asset('storage/'.$company->logo)}}" width="40"
-                                        class="rounded-circle">
+                                        <img src="{{ asset('storage/'.$company->logo)}}" width="40"
+                                            class="rounded-circle">
                                         @endif
                                         <a href="{{url('dashboard/company/'.$company->id)}}">
                                             {{ $company->name }}
@@ -60,8 +65,7 @@
                                     <td>
                                         <a href="{{ url('dashboard/company/'.$company->id) }}"
                                             class="btn btn-sm btn-icon btn-pure btn-outline"
-                                            data-original-title="show" ><i class="ti-eye"
-                                                aria-hidden="true"></i></a>
+                                            data-original-title="show"><i class="ti-eye" aria-hidden="true"></i></a>
                                         <a href="{{ url('dashboard/company/'.$company->id.'/edit') }}"
                                             class="btn btn-sm btn-icon btn-pure btn-outline" data-toggle="tooltip"
                                             data-original-title="Update"><i class="ti-pencil-alt"
