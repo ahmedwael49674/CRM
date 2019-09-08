@@ -41,5 +41,16 @@ It's a system that allows store companies and employees with:
 5. run the migrations (php artisan migrate)
 6. run the seeder (php artisan db:seed)
 7. run the project (php artisan serve)
+8. visit (http://localhost) and use "admin@admin.com" as email and "password" as password
+
+Or using docker:
+1. git clone the project
+2. docker run --rm -v $(pwd):/app composer/composer install
+3. docker-compose up -d --build
+4. docker-compose exec app bash
+5. copy .env.exmple to .env
+6. run the migrations (php artisan migrate)
+7. run the seeder (php artisan db:seed)
+8. visit (http://localhost) and use "admin@admin.com" as email and "password" as password
 
 Note: to active mail function try Mailgun or Mailtrap copy the account credentials to .env file
